@@ -24,8 +24,8 @@ $(function() {
     
     $('div').each(function() {
         if ($(this).attr('class') == 'comment-content') {
-            // console.log(this) // debug
-            // make variables to hold various parameters
+<<<<<<< HEAD
+>>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
             var myHTML = this;
             var key = '';
             var author = '';
@@ -41,7 +41,8 @@ $(function() {
                 key = saltedKey[0];
                 salt = saltedKey[1];
             });
-            // contribution by Nicholas Rayner - works great!
+<<<<<<< HEAD
+>>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
             fullLink = $(this).find(".comment-author .author-meta .comment-time a").attr('href');
             shortlink = fullLink.substring(fullLink.indexOf("#"));
             //
@@ -72,7 +73,8 @@ $(function() {
     var keyArr = [];
     keyArr = Object.keys(comments);
     keyArr.sort();
-    // sorting still works with salt added - yay JavaScript!
+<<<<<<< HEAD
+>>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
     keyArr.reverse();
     
     // create time variables and correct for timezone offsets
@@ -155,7 +157,9 @@ $(function() {
         $("body").click(function(e) {
             if (e.target.id == "sbheader" || $(e.target).parents("#sbheader").size()) { 
                 chrome.runtime.sendMessage("hideOkay", function (response) {
-                    // console.log(this);
+<<<<<<< HEAD
+=======
+>>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
                     console.log(response);
                     $("#container").hide(); 
                     $("#switchfooter").show();
@@ -163,13 +167,17 @@ $(function() {
             }
             else if (e.target.id == "myContent" || $(e.target).parents("#myContent").size()) { 
                 chrome.runtime.sendMessage("noReload", function (response) {
-                    // console.log(this);
+<<<<<<< HEAD
+=======
+>>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
                     console.log(response);
                 });
             } 
             else { 
                 chrome.runtime.sendMessage("reloadOkay", function (response) {
-                    // console.log(this);
+<<<<<<< HEAD
+=======
+>>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
                     console.log(response);
                 });
             }
