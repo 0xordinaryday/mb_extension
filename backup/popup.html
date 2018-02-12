@@ -1,0 +1,35 @@
+<!doctype html>
+
+<script language="JavaScript" type="text/javascript" src="jquery-2.2.2.min.js"></script>
+
+<html>
+  <head>
+    <title>MB Comment-O-Matic</title>
+  </head>
+  <body>
+  <h3>Blacklister</h3>
+    <div>
+        <form>
+            Spammer/twat:<br>
+            <input type="text" name="name" id="black_name"></input>
+            <p></p>
+            <button id="blacklistAdd">Add name to blacklist</button>
+        </form>
+    </div>
+    <br>
+    <div>
+        <button id="viewBlacklist">View blacklist</button>
+        <br>
+        <p>To REMOVE a name from the blacklist, click the name.
+           Click 'view blacklist' to refresh the list.</p>
+    </div>
+    <div id='current_blacklist'>
+    </div>
+    <div>
+        <!-- This is where the recent comments will go -->
+        <br>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
+

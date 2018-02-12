@@ -1,0 +1,62 @@
+<!doctype html>
+
+<script language="JavaScript" type="text/javascript" src="jquery-2.2.2.min.js"></script>
+
+<html>
+  <head>
+    <title>MB Comment Tool</title>
+  </head>
+  <body>
+  <h3>Switch On/Off</h3>
+  <div style='background-color:#e6f2ff; padding: 5px; border: 1px solid black'>
+    <form display:inline>
+        <button id="MBPowerOn" style='background-color:#ccffcc'>Sidebar On</button>
+        <button id="MBPowerOff" style='background-color:#ffcccc'>Sidebar Off</button>
+    </form>
+    <h4>Reload page after switching</h4>
+  </div>
+  <h3>Highlight/Filter</h3>
+  <div style='background-color:honeydew; padding: 5px; border: 1px solid black'>
+        <div>
+            <form>
+                Highlight name:<br>
+                <input type="text" name="name" id="MBFavName"></input>
+                <p></p>
+                <button id="MBFavListAdd">Add name to highlight list</button>
+            </form>
+        </div>
+        <br>
+        <div>
+            <button id="viewMBFavList">View highlight list</button>
+            <br>
+            <p>To REMOVE a name from the highlight list, click the name.
+            Click 'view highlight list' to refresh the list.</p>
+        </div>
+        <div id='current_MBFavList'>
+        </div>
+    </div>
+    <!-- end favs, start filter -->
+    <div style='background-color:lemonchiffon; padding: 5px; border: 1px solid black'>
+        <div>
+        <form>
+            Filter name:<br>
+            <input type="text" name="name" id="MBFiltName"></input>
+            <p></p>
+            <button id="MBFiltListAdd">Add name to filter list</button>
+        </form>
+        </div>
+        <br>
+        <div>
+            <button id="viewMBFiltList">View filter list</button>
+            <br>
+            <p>To REMOVE a name from the filter list, click the name.
+            Click 'view filter list' to refresh the list.</p>
+        </div>
+        <div id='current_MBFiltList'>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+    <br>
+  </body>
+</html>
+

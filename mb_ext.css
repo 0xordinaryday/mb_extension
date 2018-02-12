@@ -1,0 +1,47 @@
+.container {
+    width:100%;
+    border:1px solid #d3d3d3;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    display: none;
+}
+.container div {
+    width:100%;
+    display: none;
+}
+.sbheader {
+    background-color:#d3d3d3;
+    border: 1px solid #000000;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: small;
+    font-family: Arial,Helvetica,sans-serif;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 10%;
+    z-index: 999999999;
+}
+
+.container .content {
+    display: none;
+    padding : 5px;
+    font-family: Arial,Helvetica,sans-serif;
+    color: #B90000;
+}
+#container a {
+    font-size:small;
+    /*color: #2121e0;*/
+}
+
+#container p {
+    font-size:small;
+    color: #000000;
+}
+
+#clickfooter {
+    position: fixed;
+    bottom: 0;
+    width: 10%;
+}

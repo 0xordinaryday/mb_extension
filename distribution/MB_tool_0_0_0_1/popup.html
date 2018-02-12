@@ -1,0 +1,31 @@
+<!doctype html>
+
+<script language="JavaScript" type="text/javascript" src="jquery-2.2.2.min.js"></script>
+
+<html>
+  <head>
+    <title>MB Comment Tool</title>
+  </head>
+  <body>
+  <h3>Highlighter</h3>
+    <div>
+        <form>
+            Member name:<br>
+            <input type="text" name="name" id="MBFavName"></input>
+            <p></p>
+            <button id="MBlistAdd">Add name to favourites</button>
+        </form>
+    </div>
+    <br>
+    <div>
+        <button id="viewMBlist">View highlight list</button>
+        <br>
+        <p>To REMOVE a name from the highlight list, click the name.
+           Click 'view highlight list' to refresh the list.</p>
+    </div>
+    <div id='current_MBFavList'>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
+
