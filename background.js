@@ -13,7 +13,7 @@ chrome.contextMenus.onClicked.addListener(onClickHandler);
 // The onClicked callback function.
 function onClickHandler(info, tab) {
         if(tab.url.indexOf("macrobusiness") != -1) {
-            chrome.tabs.executeScript(null, {file:'jquery-2.2.2.min.js'});
+            chrome.tabs.executeScript(null, {file:'jquery-3.3.1.min.js'});
             chrome.tabs.executeScript(tab.id, { file: "mute.js" });
         }
 }; 

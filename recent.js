@@ -17,15 +17,13 @@ $(function() {
         }
     }
     
-    loadcssfile("mb_ext.css", "css"); ////dynamically load and add this .css file
+    loadcssfile("mb_ext.css", "css"); // dynamically load and add this .css file
     
     // create object to hold comments
     var comments = {};
     
     $('div').each(function() {
         if ($(this).attr('class') == 'comment-content') {
-<<<<<<< HEAD
->>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
             var myHTML = this;
             var key = '';
             var author = '';
@@ -41,8 +39,6 @@ $(function() {
                 key = saltedKey[0];
                 salt = saltedKey[1];
             });
-<<<<<<< HEAD
->>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
             fullLink = $(this).find(".comment-author .author-meta .comment-time a").attr('href');
             shortlink = fullLink.substring(fullLink.indexOf("#"));
             //
@@ -61,6 +57,35 @@ $(function() {
         }
     });
     
+    // console.log(comments) // let's look at this thing
+    
+    // make an array of strings which contains all the author names
+    function authorArray() {
+        var authorArray = []
+        for (var key in comments) {
+            properties = comments[key]
+            authorArray.push(properties["myName"])
+        }
+        return authorArray
+    }
+    
+    // function to count comments for commentator, which is the count of the author name
+    function authorCount(array) {
+        var counts = {};
+        for (var i = 0, len = array.length; i < len; i++) {
+            var name = array[i];
+            if (counts[name] === undefined){
+                counts[name] = 1;
+            } else {
+                counts[name] = counts[name] + 1;
+            }
+        }
+        return counts
+    }
+    
+    // call it
+    var commentCounts = authorCount(authorArray())
+    
     // function to salt key (time) with random number, returns salted key and salt
     function saltKey(compareTime) {
         var keyString = compareTime.toString();
@@ -73,8 +98,6 @@ $(function() {
     var keyArr = [];
     keyArr = Object.keys(comments);
     keyArr.sort();
-<<<<<<< HEAD
->>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
     keyArr.reverse();
     
     // create time variables and correct for timezone offsets
@@ -136,7 +159,9 @@ $(function() {
                     elapsed_time = timeNow - parseInt(myKey); // parseInt drops the salt!
                     timeString = calc_time(elapsed_time);
                     var properties = comments[myKey];
-                    var author_name = properties["myName"];
+                    var author_name = properties["myName"]; 
+                    // get the number of comments by this author
+                    var count = commentCounts[author_name]
                     if (name_array.indexOf(author_name) != -1) {
                         author_name = "<span style='color:fuchsia;font-weight:bold'>"+author_name+"</span>";
                     } // highlight author
@@ -144,7 +169,7 @@ $(function() {
                     var c_link = properties["myLink"];
                     if (filter_array.indexOf(author_name) == -1) { // filter author
                         longString = longString + "<a href="+'"'+c_link+'"'+'> Comment by: \
-                        '+author_name+"</a><br>"+timeString+"<p>"+c_preview+"</p>";
+                        '+author_name+"</a>" + " (" + count + ")" + "<br>"+timeString+"<p>"+c_preview+"</p>";
                     }
                 }
                 $('#container').append( "<div id='myContent'>"+longString+"</div>" );
@@ -155,29 +180,20 @@ $(function() {
     // sets messages for background.js
     $(function() {
         $("body").click(function(e) {
-            if (e.target.id == "sbheader" || $(e.target).parents("#sbheader").size()) { 
+            if (e.target.id == "sbheader" || $(e.target).parents("#sbheader").length) { 
                 chrome.runtime.sendMessage("hideOkay", function (response) {
-<<<<<<< HEAD
-=======
->>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
                     console.log(response);
                     $("#container").hide(); 
                     $("#switchfooter").show();
                 });
             }
-            else if (e.target.id == "myContent" || $(e.target).parents("#myContent").size()) { 
+            else if (e.target.id == "myContent" || $(e.target).parents("#myContent").length) { 
                 chrome.runtime.sendMessage("noReload", function (response) {
-<<<<<<< HEAD
-=======
->>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
                     console.log(response);
                 });
             } 
             else { 
                 chrome.runtime.sendMessage("reloadOkay", function (response) {
-<<<<<<< HEAD
-=======
->>>>>>> d7bcd08f90377c2ed7f6b679a473be9063c96fbb
                     console.log(response);
                 });
             }
@@ -258,7 +274,7 @@ $(function() {
     }
     
     $("#switchfooter").click(function () {
-        console.log('hit it');
+        // console.log('hit it');
         $("#container").show(); 
         $("#switchfooter").hide(); 
     });

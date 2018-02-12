@@ -3,7 +3,7 @@
 
   "name": "MB Comment Sidebar",
   "description": "This extension will add a recent comments sidebar on MacroBusiness pages",
-  "version": "0.0.0.6",
+  "version": "0.0.0.7",
 
   "browser_action": {
     "default_icon": "icon.png",
@@ -12,7 +12,7 @@
   
     "background": {
     "scripts": [
-      "jquery-2.2.2.min.js",
+      "jquery-3.3.1.min.js",
       "background.js"
     ],
     "persistent": false
@@ -39,7 +39,7 @@
   "content_scripts": [{ 
     "matches": ["http://www.macrobusiness.com.au/*", "https://www.macrobusiness.com.au/*"],
     "css": ["mb_ext.css"],
-    "js": ["jquery-2.2.2.min.js"]
+    "js": ["jquery-3.3.1.min.js"]
     }]
 
 }
