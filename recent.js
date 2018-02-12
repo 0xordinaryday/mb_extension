@@ -60,20 +60,11 @@ $(function() {
     // console.log(comments) // let's look at this thing
     
     // make an array of strings which contains all the author names
-    function authorArray() {
-        var authorArray = []
+    function authorCount() {
+        var counts = {};
         for (var key in comments) {
             properties = comments[key]
-            authorArray.push(properties["myName"])
-        }
-        return authorArray
-    }
-    
-    // function to count comments for commentator, which is the count of the author name
-    function authorCount(array) {
-        var counts = {};
-        for (var i = 0, len = array.length; i < len; i++) {
-            var name = array[i];
+            name = properties["myName"]
             if (counts[name] === undefined){
                 counts[name] = 1;
             } else {
@@ -84,7 +75,7 @@ $(function() {
     }
     
     // call it
-    var commentCounts = authorCount(authorArray())
+    var commentCounts = authorCount()
     
     // function to salt key (time) with random number, returns salted key and salt
     function saltKey(compareTime) {
@@ -154,7 +145,9 @@ $(function() {
                 // add content
                 $('#container').append( "<div class='sbheader' id='sbheader'>Hide Sidebar >></div>" );
                 
-                for(var i = 0; i < keyArr.length; i++) {
+                var numberOfComments = keyArr.length
+                
+                for(var i = 0; i < numberOfComments; i++) {
                     myKey = keyArr[i];
                     elapsed_time = timeNow - parseInt(myKey); // parseInt drops the salt!
                     timeString = calc_time(elapsed_time);
@@ -162,6 +155,7 @@ $(function() {
                     var author_name = properties["myName"]; 
                     // get the number of comments by this author
                     var count = commentCounts[author_name]
+                    var percent = (count/numberOfComments*100).toFixed(1)
                     if (name_array.indexOf(author_name) != -1) {
                         author_name = "<span style='color:fuchsia;font-weight:bold'>"+author_name+"</span>";
                     } // highlight author
@@ -169,7 +163,7 @@ $(function() {
                     var c_link = properties["myLink"];
                     if (filter_array.indexOf(author_name) == -1) { // filter author
                         longString = longString + "<a href="+'"'+c_link+'"'+'> Comment by: \
-                        '+author_name+"</a>" + " (" + count + ")" + "<br>"+timeString+"<p>"+c_preview+"</p>";
+                        '+author_name+"</a>" + " (" + count + ", " + percent + "%)" + "<br>"+timeString+"<p>"+c_preview+"</p>";
                     }
                 }
                 $('#container').append( "<div id='myContent'>"+longString+"</div>" );
